@@ -30,58 +30,73 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-gradient-to-b from-background to-background/50">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h1 className="text-5xl font-bold mb-6">
-            Secure the Digital World, <span className="gradient-text">Get Rewarded</span>
+      <section className="container mx-auto px-4 py-24 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent blur-3xl" />
+        <div className="text-center max-w-3xl mx-auto mb-16 relative animate-fade-in">
+          <h1 className="text-6xl font-bold mb-8 leading-tight">
+            Secure the Digital World,{" "}
+            <span className="gradient-text font-extrabold">Get Rewarded</span>
           </h1>
-          <p className="text-xl text-muted-foreground mb-8">
+          <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
             Join the elite community of ethical hackers and earn bounties by finding security vulnerabilities.
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90">
-            Start Hunting <ArrowRight className="ml-2" />
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 shadow-lg shadow-primary/25 hover:scale-105 transition-transform">
+            Start Hunting <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
         <Stats />
       </section>
 
       {/* Featured Programs */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8">Featured Programs</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="container mx-auto px-4 py-20 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/10 via-transparent to-transparent blur-3xl" />
+        <h2 className="text-4xl font-bold mb-4 relative">
+          Featured Programs
+          <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary mt-2 rounded-full" />
+        </h2>
+        <p className="text-muted-foreground mb-10 text-lg">
+          Discover top bug bounty programs from leading companies
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredPrograms.map((program, index) => (
-            <ProgramCard key={index} {...program} />
+            <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
+              <ProgramCard {...program} />
+            </div>
           ))}
         </div>
       </section>
 
       {/* How it Works & Leaderboard */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 glass-card p-8 rounded-lg">
-            <h2 className="text-3xl font-bold mb-6">How It Works</h2>
-            <div className="space-y-6">
+          <div className="lg:col-span-2 glass-card p-10 rounded-2xl border border-white/10 shadow-xl relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent" />
+            <h2 className="text-3xl font-bold mb-8 relative">
+              How It Works
+              <div className="h-1 w-16 bg-gradient-to-r from-accent to-primary mt-2 rounded-full" />
+            </h2>
+            <div className="space-y-8 relative">
               {[
                 { title: "1. Choose a Program", desc: "Browse through various bug bounty programs and select the ones that match your expertise." },
                 { title: "2. Hunt Vulnerabilities", desc: "Use your skills to discover security vulnerabilities in the target systems." },
                 { title: "3. Submit Reports", desc: "Document your findings and submit detailed vulnerability reports." },
                 { title: "4. Get Rewarded", desc: "Earn bounties for valid vulnerabilities and build your reputation." },
               ].map((step, index) => (
-                <div key={index} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                <div key={index} className="flex gap-6 animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
+                  <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center text-primary font-bold text-xl border border-primary/20 shadow-lg shadow-primary/10">
                     {index + 1}
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.desc}</p>
+                    <h3 className="font-semibold text-xl mb-2">{step.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <div>
+          <div className="animate-fade-in" style={{ animationDelay: "600ms" }}>
             <Leaderboard />
           </div>
         </div>
