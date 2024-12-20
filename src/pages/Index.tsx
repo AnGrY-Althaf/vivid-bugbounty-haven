@@ -1,6 +1,7 @@
 import SearchHeader from "@/components/SearchHeader";
 import FilterTags from "@/components/FilterTags";
 import ProgramCard from "@/components/ProgramCard";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   const featuredPrograms = [
