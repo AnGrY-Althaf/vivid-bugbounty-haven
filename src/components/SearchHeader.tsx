@@ -18,7 +18,7 @@ const SearchHeader = () => {
         
         <div className="bg-white rounded-lg p-4 shadow-lg">
           <div className="mb-4">
-            <p className="text-gray-700 font-medium mb-4">We have 454 opportunities for you</p>
+            <p className="text-black font-medium mb-4">We have 454 opportunities for you</p>
           </div>
           
           <div className="flex flex-wrap gap-4">
