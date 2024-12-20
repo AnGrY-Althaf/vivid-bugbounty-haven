@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 interface ProgramProps {
   name: string;
@@ -11,6 +12,8 @@ interface ProgramProps {
 }
 
 const ProgramCard = ({ name, company, logo, bountyRange, tags }: ProgramProps) => {
+  const navigate = useNavigate();
+
   return (
     <Card className="glass-card p-6 hover:scale-[1.02] transition-transform duration-200">
       <div className="flex items-center gap-4 mb-4">
@@ -30,7 +33,11 @@ const ProgramCard = ({ name, company, logo, bountyRange, tags }: ProgramProps) =
         </div>
         <div className="flex justify-between items-center">
           <span className="text-sm text-muted-foreground">Up to {bountyRange}</span>
-          <Button variant="outline" className="hover:bg-primary hover:text-white">
+          <Button 
+            variant="outline" 
+            className="hover:bg-primary hover:text-white"
+            onClick={() => navigate(`/program/1`)}
+          >
             View Program
           </Button>
         </div>
